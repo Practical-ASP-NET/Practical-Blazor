@@ -1,17 +1,17 @@
-﻿@page "/Board"
+﻿@page "/"
 
-<section class="card-deck">
+<section class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
 	@foreach (var board in boards)
 	{
-		<section class="card">
-			<div class="card-body">
-				<h3 class="card-title">@board.Title</h3>
-			</div>
-		</section>
+		<section class="col">
+			<section class="card">
+				<div class="card-body">
+					<h3 class="card-title">@board.Title</h3>
+				</div>
+			</section>
+		</section> 
 	}
-
-
 
 </section>
 

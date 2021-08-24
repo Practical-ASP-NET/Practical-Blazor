@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Shared\Donatello.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Counter.razor" />
+    <_ContentIncludedByDefault Remove="Pages\FetchData.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Index.razor" />
+  </ItemGroup>
+
 </Project>
