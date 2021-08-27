@@ -1,0 +1,23 @@
+@page "/Board/{id}"
+
+<h3>Board Details (@Id)</h3>
+
+@foreach (var column in model.Columns)
+{
+    <h3>@column.Title</h3>
+}
+
+@code {
+
+    [Parameter]
+    public string Id { get; set; }
+
+    private BoardDetailsModel model = new BoardDetailsModel
+    {
+        Columns = new List<BoardDetailsModel.Column>
+        {
+            new BoardDetailsModel.Column { Title = "ToDo" }
+        }
+    };
+
+}
