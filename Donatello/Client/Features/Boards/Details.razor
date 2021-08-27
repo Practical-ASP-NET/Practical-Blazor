@@ -1,11 +1,25 @@
 @page "/Board/{id}"
 
-<h3>Board Details (@Id)</h3>
-
-@foreach (var column in model.Columns)
-{
-    <h3>@column.Title</h3>
-}
+<div class="container">
+    <div class="row">
+        @foreach (var column in model.Columns)
+        {
+            <div class="col-sm-4">
+                <h3>@column.Title</h3>
+                
+                <!-- add this -->
+                @foreach (var card in column.Cards)
+                {
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <p class="card-text">@card.Content</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
 
 @code {
 
@@ -16,7 +30,23 @@
     {
         Columns = new List<BoardDetailsModel.Column>
         {
-            new BoardDetailsModel.Column { Title = "ToDo" }
+            new BoardDetailsModel.Column
+            {
+                Title = "ToDo",
+                Cards = new List<BoardDetailsModel.Card>
+                {
+                    new BoardDetailsModel.Card { Content = "A test card" },
+                    new BoardDetailsModel.Card { Content = "Another test card" }
+                }
+            },
+            new BoardDetailsModel.Column()
+            {
+                Title = "Doing",
+                Cards = new List<BoardDetailsModel.Card>
+                {
+                    new BoardDetailsModel.Card { Content = "Yet another card" }
+                }
+            }
         }
     };
 
